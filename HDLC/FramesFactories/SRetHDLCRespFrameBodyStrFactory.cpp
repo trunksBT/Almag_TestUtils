@@ -19,8 +19,7 @@ std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_DeviceScan() const
 {
    return { "0 bf 81 f0 15 1 9 4e 4b 34 36 35 30 30 30 30 "
             "4 1 1 "
-            "6 2 4e 4b "
-            "14 1 2 "};
+            "6 2 4e 4b "};
 }
 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_AddressAssignment() const
@@ -33,12 +32,12 @@ std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_AddressAssignment() co
 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_3GPPReleaseId() const
 {
-   return { "3 bf 81 f0 3 5 1 8 " };
+   return { "3 bf 81 f0 3 5 1 8 "};
 }
 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_AISGProtocolVersion() const
 {
-   return { "3 bf 81 f0 3 14 1 2 " };
+   return { "3 bf 81 f0 3 14 1 2 "};
 }
 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_HDLCParameters() const
