@@ -5,7 +5,7 @@
 class ZMqPubSubCommunicator final: public ZMqCommunicator
 {
 public:
-   ZMqPubSubCommunicator();
+   ZMqPubSubCommunicator(zmq::socket_type messageType);
    virtual ~ZMqPubSubCommunicator();
 
    bool send(const std::string &address, HDLCFrameBodyPtr frame) override;
