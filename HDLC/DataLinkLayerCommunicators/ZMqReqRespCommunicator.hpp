@@ -5,11 +5,12 @@
 class ZMqReqRespCommunicator final: public ZMqCommunicator
 {
 public:
-   ZMqReqRespCommunicator();
-   virtual ~ZMqReqRespCommunicator();
-
-   void setupSend(const std::string& address) override;
-   void setupReceive(const std::string& address) override;
+   ZMqReqRespCommunicator(zmq::socket_type messageType);
    bool send(const std::string &address, const HDLCFrameBodyPtr frame) override;
    HDLCFramePtr receive(const std::string &address) override;
+   virtual ~ZMqReqRespCommunicator();
+
+private:
+   const std::string tcpPortAddressHeader;
+   std::string tcpPortAddress;
 };
