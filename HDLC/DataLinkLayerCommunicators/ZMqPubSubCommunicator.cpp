@@ -15,8 +15,8 @@ inline bool isLastMessage(int msgCount, int numberOfMessages)
 }
 }
 
-ZMqPubSubCommunicator::ZMqPubSubCommunicator()
-   : ZMqCommunicator{NUM_OF_IO_THREADS, zmq::socket_type::pub, zmq::socket_type::sub}
+ZMqPubSubCommunicator::ZMqPubSubCommunicator(zmq::socket_type messageType)
+: ZMqCommunicator{messageType}
 {
    LOG(trace);
 }
