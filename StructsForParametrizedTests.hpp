@@ -2,6 +2,12 @@
 
 #include <Utils/TypeAliases.hpp>
 
+struct ReceivedFrameStr_RespCommandStr
+{
+   const std::string receivedFrameStr;
+   const std::string respCommandStr;
+};
+
 struct BuiltFrameStr_ExpectedFrameStr
 {
    const std::string builtFrameStr;
