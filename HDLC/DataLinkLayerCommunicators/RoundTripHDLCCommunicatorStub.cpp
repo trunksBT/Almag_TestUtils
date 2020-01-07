@@ -16,6 +16,16 @@ RoundTripHDLCCommunicatorStub::~RoundTripHDLCCommunicatorStub()
    LOG(trace) << "MT_HDLC_ROUND_LOOP";
 }
 
+void RoundTripHDLCCommunicatorStub::setupSend(const std::string& address)
+{
+   LOG(info) << "Not implemented test function";
+}
+
+void RoundTripHDLCCommunicatorStub::setupReceive(const std::string& address)
+{
+   LOG(info) << "Not implemented test function";
+}
+
 bool RoundTripHDLCCommunicatorStub::send(const std::string &address, HDLCFrameBodyPtr frame)
 {
    hdlcFrameBody_ = frame;

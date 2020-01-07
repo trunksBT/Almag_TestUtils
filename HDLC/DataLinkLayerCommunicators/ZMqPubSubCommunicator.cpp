@@ -21,11 +21,20 @@ ZMqPubSubCommunicator::~ZMqPubSubCommunicator()
    LOG(trace);
 }
 
-bool ZMqPubSubCommunicator::send(const std::string& address, HDLCFrameBodyPtr frame)
+void ZMqPubSubCommunicator::setupSend(const std::string& address)
 {
    LOG(debug) << "on " << address;
    socket_.bind("ipc://" + address);
+}
 
+void ZMqPubSubCommunicator::setupReceive(const std::string& address)
+{
+   socket_.connect(address);
+   socket_.setsockopt(ZMQ_SUBSCRIBE, address.data(), IS_ON);
+}
+
+bool ZMqPubSubCommunicator::send(const std::string& address, HDLCFrameBodyPtr frame)
+{
    bool sentState{ true };
    const std::string sentMessage = toString(frame->build());
    LOG(debug) << "Message: " << sentMessage;
@@ -37,9 +46,6 @@ bool ZMqPubSubCommunicator::send(const std::string& address, HDLCFrameBodyPtr fr
 
 HDLCFramePtr ZMqPubSubCommunicator::receive(const std::string &address)
 {
-   socket_.connect(address);
-   socket_.setsockopt(ZMQ_SUBSCRIBE, address.data(), IS_ON);
-
    std::string message = s_recv(socket_);
    LOG(debug) << "Received Message: " << message;
    return std::make_shared<HDLCFrame>(HDLCFrameBodyInterpreter().apply(message));
