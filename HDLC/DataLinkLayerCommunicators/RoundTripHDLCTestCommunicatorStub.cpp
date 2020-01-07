@@ -42,7 +42,7 @@ HDLCFramePtr RoundTripHDLCTestCommunicatorStub::receive(const std::string &addre
 HDLCFramePtr RoundTripHDLCTestCommunicatorStub::communicate(
    const std::string& address, HDLCFrameBodyPtr frame)
 {
-   throw std::runtime_error("Not implemented yet");
+   return nullptr;
 }
 
 }
