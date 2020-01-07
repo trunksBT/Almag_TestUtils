@@ -1,17 +1,19 @@
 #pragma once
 
 #include <HDLC/IHDLCCommunicator.hpp>
-#include "ZeroMqUtils.hpp"
+#include <MessagingPattern/ZeroMqUtils.hpp>
 
 class ZMqReqRespTestCommunicator final: public IHDLCCommunicator
 {
 public:
    ZMqReqRespTestCommunicator();
-   virtual ~ZMqReqRespTestCommunicator();
 
-   bool send(const std::string &address, const HDLCFrameBodyPtr frame) override;
+   void setupReceive(const std::string& address);
+   void setupSend(const std::string& address);
    HDLCFramePtr receive(const std::string &address) override;
+   bool send(const std::string &address, const HDLCFrameBodyPtr frame) override;
 
+   virtual ~ZMqReqRespTestCommunicator();
 private:
    zmq::context_t context_;
    zmq::socket_t requestSocket_;

@@ -5,17 +5,17 @@
 
 namespace test
 {
-class RoundTripHDLCCommunicatorStub final: public IHDLCCommunicator
+class RoundTripHDLCTestCommunicatorStub final: public IHDLCCommunicator
 {
 public:
-   explicit RoundTripHDLCCommunicatorStub();
+   explicit RoundTripHDLCTestCommunicatorStub();
 
    void setupSend(const std::string& address) override;
    void setupReceive(const std::string& address) override;
    bool send(const std::string &address, HDLCFrameBodyPtr frame) override;
    HDLCFramePtr receive(const std::string &address) override;
 
-   virtual ~RoundTripHDLCCommunicatorStub();
+   virtual ~RoundTripHDLCTestCommunicatorStub();
 
 private:
    HDLCFrameBodyPtr hdlcFrameBody_;
