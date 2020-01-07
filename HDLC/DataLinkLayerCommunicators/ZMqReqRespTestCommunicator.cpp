@@ -48,3 +48,8 @@ HDLCFramePtr ZMqReqRespTestCommunicator::receive(const std::string &address)
    LOG(debug) << "Received Message: " << message;
    return std::make_shared<HDLCFrame>(HDLCFrameBodyInterpreter().apply(message));
 }
+
+HDLCFramePtr ZMqReqRespTestCommunicator::communicate(const std::string& address, HDLCFrameBodyPtr frame)
+{
+   throw std::runtime_error("Not implemented yet");
+}

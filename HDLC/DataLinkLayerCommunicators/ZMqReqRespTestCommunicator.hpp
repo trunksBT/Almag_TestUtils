@@ -10,8 +10,9 @@ public:
 
    void setupReceive(const std::string& address);
    void setupSend(const std::string& address);
-   HDLCFramePtr receive(const std::string &address) override;
    bool send(const std::string &address, const HDLCFrameBodyPtr frame) override;
+   HDLCFramePtr receive(const std::string &address) override;
+   HDLCFramePtr communicate(const std::string& address, HDLCFrameBodyPtr frame) override;
 
    virtual ~ZMqReqRespTestCommunicator();
 private:
