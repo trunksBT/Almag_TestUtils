@@ -17,7 +17,7 @@ std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_DummyScan() const
 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_DeviceScan() const
 {
-   return { "0 bf 81 f0 15 1 9 4e 4b 34 36 35 30 30 30 30 "
+   return { "0 bf 81 f0 12 1 9 4e 4b 34 36 35 30 30 30 30 "
             "4 1 1 "
             "6 2 4e 4b "};
 }
