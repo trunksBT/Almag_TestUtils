@@ -42,6 +42,7 @@ HDLCFramePtr RoundTripHDLCTestCommunicatorStub::receive(const std::string &addre
 HDLCFramePtr RoundTripHDLCTestCommunicatorStub::communicate(
    const std::string& address, HDLCFrameBodyPtr frame)
 {
+   send(address, frame);
    return nullptr;
 }
 
