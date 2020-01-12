@@ -11,7 +11,8 @@ using namespace std::string_literals;
 class BaseFixtureWithDB : public testing::Test
 {
 protected:
-    explicit BaseFixtureWithDB(const Database::ValueType inDB);
+    explicit BaseFixtureWithDB(const Database::ValueType inDB)
+    : db_(inDB) {}
 
     Database db_;
 };

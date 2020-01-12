@@ -1,13 +1,19 @@
 #pragma once
 
 #include <memory>
-#include <TestUtils/Fixtures/BaseFixtureWithDB.hpp>
 #include <HDLC/IHDLCCommunicator.hpp>
+#include <TestUtils/Fixtures/BaseFixtureWithDB.hpp>
 
 class BaseFixtureWithDBAndHDLC : public BaseFixtureWithDB
 {
 protected:
-    BaseFixtureWithDBAndHDLC(const Database::ValueType inDB, std::vector<IHDLCCommunicatorPtr> hdlcComm);
+   BaseFixtureWithDBAndHDLC(
+       const Database::ValueType inDB,
+       std::vector<IHDLCCommunicatorPtr> hdlcComm
+   )
+   : BaseFixtureWithDB(inDB)
+   , hdlcCommunicators_{hdlcComm} {}
+   
     std::vector<IHDLCCommunicatorPtr> hdlcCommunicators_;
 };
 
