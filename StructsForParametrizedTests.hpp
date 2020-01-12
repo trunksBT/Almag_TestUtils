@@ -1,12 +1,7 @@
 #pragma once
 
+#include <memory>
 #include <Utils/TypeAliases.hpp>
-
-struct ReceivedFrameStr_RespCommandStr
-{
-   const std::string receivedFrameStr;
-   const std::string respCommandStr;
-};
 
 struct BuiltFrameStr_ExpectedFrameStr
 {
@@ -26,8 +21,14 @@ struct ReceivedCommand_ExpectedFrameHexes
    const Hexes expectedFrameHexes;
 };
 
-struct ExpectedFrameType_ExpectedValue_ReceivedString
+struct ExpectedValue_ReceivedString
 {
    const Hexes expectedHexes;
    const std::string receivedString;
+};
+
+struct ExpectedHexes
+{
+   std::shared_ptr<HDLCFrameBody> sentFrame;
+   const Hexes expectedHexes;
 };
