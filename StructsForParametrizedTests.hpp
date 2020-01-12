@@ -27,8 +27,13 @@ struct ExpectedValue_ReceivedString
    const std::string receivedString;
 };
 
+struct ReceivedFrameStr_RespCommandStr
+{
+   const std::string receivedFrameStr;
+   const std::string respCommandStr;
+};
+
 struct ExpectedHexes
 {
-   std::shared_ptr<HDLCFrameBody> sentFrame;
    const Hexes expectedHexes;
 };
