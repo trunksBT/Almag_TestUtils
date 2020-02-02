@@ -44,8 +44,8 @@ std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_AISGProtocolVersion() 
 std::string SRetHDLCRespFrameBodyStrFactory::get_FrameXID_HDLCParameters() const
 {
    return { "3 bf 81 80 12 "
-            "5 4 0 0 2 50 "
-            "6 4 0 0 2 50 "
+            "5 4 50 2 0 0 "
+            "6 4 50 2 0 0 "
             "7 1 1 "
             "8 1 1 " };
 }
